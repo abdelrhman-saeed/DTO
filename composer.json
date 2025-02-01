@@ -1,0 +1,17 @@
+{
+    "name": "abdelrhman-saeed/dto",
+    "autoload": {
+        "psr-4": {
+            "AbdelrhmanSaeed\\DTO\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "abdelrhman-saeed",
+            "email": "abdelrhmansaeed001@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/http-foundation": "7.1"
+    }
+}
