@@ -157,7 +157,7 @@ class Rules
 
     public function callback(callable $callable): self
     {
-        if (! $callable()) {
+        if (! $callable($this->value)) {
             $this->DTO->addError($this->key, 'callback failed');
         }
 
@@ -222,6 +222,17 @@ class Rules
             $this->DTO->addError($this->key, "{$this->key} is not the same time as {$name}");
         }
         
+        return $this;
+    }
+
+    //
+
+    public function enum(array $set): self
+    {
+        if (!in_array($this->value, $set)) {
+            $this->DTO->addError($this->key, "doesn't match it's specified values");
+        }
+
         return $this;
     }
 }
