@@ -75,7 +75,7 @@ abstract class DTO
         return $validated;
     }
 
-    public function getErros(): array {
+    public function getErrors(): array {
         return $this->errors;
     }
 

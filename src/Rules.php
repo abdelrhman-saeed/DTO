@@ -24,6 +24,10 @@ class Rules
         $dimensions     = explode('.', $name);
 
         foreach($dimensions as $dimension) {
+            if (is_null($dataPointer[$dimension])) {
+                return null;
+            }
+
             $dataPointer = $dataPointer[$dimension];
         }
 
@@ -34,6 +38,16 @@ class Rules
     {
         return $this->errors;
     }
+
+    public function required(): self
+    {
+        if (is_null($this->value)) {
+            $this->DTO->addError($this->key, 'required');
+        }
+
+        return $this;
+    }
+
 
     public function numeric(): self
     {
